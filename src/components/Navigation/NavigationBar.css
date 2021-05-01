@@ -1,0 +1,42 @@
+.navbar-toggler {
+  background-color: aqua;
+}
+
+.navbar-collapse {
+  background-color: blueviolet;
+  position: absolute;
+  width: 100%;
+}
+.header {
+  background: goldenrod;
+}
+.logo-container {
+  background: yellow;
+  border-radius: 50%;
+  /* width: 60px; */
+  /* height: 60px; */
+}
+
+.logo {
+  font-family: "Dancing Script", cursive;
+  font-size: 30px;
+  left: 20px;
+  position: relative;
+}
+.bigB {
+  font-size: 20px;
+  /* padding: 0 20px 0 0px; */
+}
+.links {
+  color: white;
+  margin-top: 15px;
+}
+.img {
+  width: 3rem;
+}
+.dropdown-toggle {
+  color: white;
+  outline: none;
+  background: transparent;
+  border: none;
+}
