@@ -11,8 +11,8 @@ const NavigationBar = ()=>{
         <Navbar  expand="md" className = 'header'variant="dark">
             <Container fluid>
                 <Row style={{width:100+'%'}}>
-                    <Col xs='2' >
-                    <Navbar.Brand className='logo' href="#home"><span className='bigB'>B</span>jornson
+                    <Col xs='2'className='logo' >
+                    <Navbar.Brand  href="#home"><span className='bigB'>B</span>jornson
                 
                     </Navbar.Brand>
                     </Col>
@@ -28,7 +28,7 @@ const NavigationBar = ()=>{
                     <Col xs='2' >
                         <Dropdown>
                         <Dropdown.Toggle as='a'  >
-                        <Image className='img' src={profilePics}  roundedCircle  />
+                        <Image className='img' src={profilePics}  roundedCircle />
                         </Dropdown.Toggle>
                     
                     <Dropdown.Menu>
@@ -39,13 +39,6 @@ const NavigationBar = ()=>{
                             </Router>
                     </Dropdown.Menu>
                     </Dropdown>
-                    {/* <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-                    <Navbar.Collapse id="responsive-navbar-nav">
-                    <Nav className="mr-auto">
-                    <Nav.Link href="#features">Features</Nav.Link>
-                    <Nav.Link href="#pricing">Pricing</Nav.Link>
-                    </Nav>
-                    </Navbar.Collapse> */}
       
                     </Col>
                 </Row>

@@ -19,8 +19,8 @@
 
 .logo {
   font-family: "Dancing Script", cursive;
-  font-size: 30px;
-  left: 20px;
+  font-size: 20px;
+  left: 10px;
   position: relative;
 }
 .bigB {
@@ -29,7 +29,7 @@
 }
 .links {
   color: white;
-  margin-top: 15px;
+  margin-top: 10px;
 }
 .img {
   width: 3rem;
