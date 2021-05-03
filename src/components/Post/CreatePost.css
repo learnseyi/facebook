@@ -24,3 +24,14 @@
 .create-post-container {
   display: flex;
 }
+.modal-container {
+  width: 5px;
+  background-color: lawngreen;
+}
+.bio {
+  position: sticky !important;
+  padding-bottom: 300px;
+}
+.test {
+  position: sticky;
+}

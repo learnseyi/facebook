@@ -1,12 +1,14 @@
 import NavigationBar from '../Navigation/NavigationBar';
-import Profile from '../Profile/Profile';
+import Posts from '../Post/Posts';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
     <NavigationBar/>
-    <Profile/>
+    <div className='post'>
+    <Posts/>
+    </div>
     </div>
   );
 }

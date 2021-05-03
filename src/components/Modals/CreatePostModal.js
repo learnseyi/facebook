@@ -16,6 +16,7 @@ export const CreatePostModal = (props)=>{
         dialogClassName='test'
         centered
         
+        
       >
         
         <Modal.Header  closeButton>

@@ -8,7 +8,7 @@ import './NavigationBar.css';
 
 const NavigationBar = ()=>{
     return(
-        <Navbar  expand="md" className = 'header'variant="dark">
+        <Navbar  expand="md" className = 'header sticky-top'variant="dark">
             <Container fluid>
                 <Row style={{width:100+'%'}}>
                     <Col xs='2'className='logo' >
