@@ -1,11 +1,12 @@
-import React,{useState} from 'react';
-import {Card,Image} from 'react-bootstrap';
+import React,{useState,useRef} from 'react';
+import {Button,Card,Container,Col,Image,Row} from 'react-bootstrap';
 import ProfilePics from '../Navigation/image1.jpg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrash,faPen } from '@fortawesome/free-solid-svg-icons'
 import EditPostModal from '../Modals/EditPostModal';
+import Comments from './Comments'
 import './RecentPost.css';
-import { BrowserRouter as Router, Link} from 'react-router-dom';
+import { BrowserRouter as Router, Link,Route,Switch} from 'react-router-dom';
 
 const timeElapsed = Date.now();
 const date = new Date(timeElapsed)
@@ -17,7 +18,8 @@ const posts = [
         profilePics: ProfilePics,
         date: date.toDateString(),
         content: 'thtkljklsjlksjkljskjskjksjksjksjkkskhkshkshkshskhkshkhskhskhs',
-        images: []
+        images: [],
+        comment:false
     },
     {
         id: num ++,
@@ -25,7 +27,8 @@ const posts = [
         profilePics: ProfilePics,
         date: date.toDateString(),
         content: 'thtkljklsjlksjkljskjskjksjksjksjkkskhkshkshkshskhkshkhskhskhsthtkljklsjlksjkljskjskjksjksjksjkkskhkshkshkshskhkshkhskhskhs',
-        images: [ProfilePics,ProfilePics,ProfilePics]
+        images: [ProfilePics,ProfilePics,ProfilePics],
+        comment:false
     },
     {
         id: num ++,
@@ -33,7 +36,8 @@ const posts = [
         profilePics: ProfilePics,
         date: date.toDateString(),
         content: '',
-        images: [ProfilePics,ProfilePics,ProfilePics]
+        images: [ProfilePics,ProfilePics,ProfilePics],
+        comment:false
     }
 ]
 
@@ -41,22 +45,32 @@ const RecentPost = ()=>{
     const [postList,setPostList] = useState(posts)
     const [editModal,setEditModal] = useState(false)
     const [content,setContent] = useState(' ')
-    // const [newContent,setNewContent] = useState(" ");
+    const commentRef = useRef(true)
    
    
-
+   // function to acttivate commenting - check current post and set commenting to true
+const handleComment = (id)=>{
+        const currentPost = postList.find(post => id === post.id)
+        if(id === currentPost.id){
+            currentPost.comment = commentRef.current
+        }
+        
+        
+}
     const handleDelete =(id)=>{
         const currentPost = postList.find(post => id === post.id)
         const index = postList.indexOf(currentPost)
         postList.splice(index,1)
         setPostList([...postList])
     }
-    const handleEdit =(e,id)=>{ //check if current post same as editing post if yes set as default value 
+    const handleEdit =(e,id)=>{ //check if current post is same as editing post if yes set as default value 
         setEditModal(true)
         const currentPost = postList.find(post => id === post.id);
         let currentContent = currentPost.content;
         setContent(currentContent)
     }
+
+
     
    return(
     postList.map(post =>{
@@ -94,6 +108,28 @@ const RecentPost = ()=>{
                     return <Image key={i}src={img}/>
                 })}
                 </div>
+                <Router>
+                <Container>
+                    <Row className='emoji'> 
+                        <Col>
+                        <Button  variant="primary" block><span role="img" aria-label="like">👍</span>Like</Button>
+                        </Col>
+                        <Col>
+                        <Link to='/Comments'><span role="img" aria-label="comment">💬</span>comment
+                        <Button  onClick={()=>handleComment(post.id)}variant="primary" block></Button>
+                        </Link>
+                        </Col>
+                    </Row>
+                    <Row>
+                    <Switch>
+                     <Route exact path='/Comments' render={props => <Comments comment={post.comment}/>}/>
+                    </Switch>
+                    </Row>
+                     
+                    </Container>
+                
+               
+                </Router>
               
             </Card>
     
